@@ -12,7 +12,7 @@ const problemSchema = new mongoose.Schema({
         required: true,
     },
     tags: {
-        type: String,
+        type: [String],
         enum: ['array', 'math', 'string', 'linked-list', 'tree', 'graph', 'dynamic-programming', 'greedy', 'backtracking', 'sorting', 'searching'],
         required: true,
     },
