@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import problemRouter from "./routes/problem";
 import { authRouter } from "./routes/user_authentication";
 import { connectRedis } from "./config/redis";
+import { chatRouter } from "./routes/chat";
 import cors from "cors";
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(
 app.use("/user", authRouter);
 app.use("/problem", problemRouter);
 app.use("/submission", submitRouter);
+app.use("/chat", chatRouter);
 
 main()
   .then(async () => {
