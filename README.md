@@ -1,4 +1,4 @@
-# 🔥 judge0 Arena - Next-Gen Competitive Programming Platform
+# 🔥Judge0 - Next-Gen Competitive Programming Platform
 
 <div align="center">
 
@@ -18,7 +18,7 @@
 
 ## 🎯 Project Overview
 
-**judge0 Arena** is a sophisticated, full-stack competitive programming platform that transcends traditional online judges by integrating AI-powered mentorship, real-time collaboration, and enterprise-grade code execution infrastructure. Built on the robust Judge0 API foundation, this platform delivers a seamless coding experience with advanced problem-solving assistance.
+**Judge0** is a sophisticated, full-stack competitive programming platform that transcends traditional online judges by integrating AI-powered mentorship, real-time collaboration, and enterprise-grade code execution infrastructure. Built on the robust Judge0 API foundation, this platform delivers a seamless coding experience with advanced problem-solving assistance.
 
 ### 🧠 Core Philosophy
 
