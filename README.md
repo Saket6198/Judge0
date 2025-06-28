@@ -1,4 +1,4 @@
-# 🔥 CodeForge Arena - Next-Gen Competitive Programming Platform
+# 🔥 judge0 Arena - Next-Gen Competitive Programming Platform
 
 <div align="center">
 
@@ -18,7 +18,7 @@
 
 ## 🎯 Project Overview
 
-**CodeForge Arena** is a sophisticated, full-stack competitive programming platform that transcends traditional online judges by integrating AI-powered mentorship, real-time collaboration, and enterprise-grade code execution infrastructure. Built on the robust Judge0 API foundation, this platform delivers a seamless coding experience with advanced problem-solving assistance.
+**judge0 Arena** is a sophisticated, full-stack competitive programming platform that transcends traditional online judges by integrating AI-powered mentorship, real-time collaboration, and enterprise-grade code execution infrastructure. Built on the robust Judge0 API foundation, this platform delivers a seamless coding experience with advanced problem-solving assistance.
 
 ### 🧠 Core Philosophy
 
@@ -72,7 +72,7 @@ interface CodingAgent {
 
 ### 📁 Project Structure
 ```
-codeforge-arena/
+judge0-arena/
 ├── 🎨 client/judge0/          # React + TypeScript Frontend
 │   ├── src/
 │   │   ├── pages/             # Route components
@@ -124,7 +124,7 @@ redis >= 7.0
 #### Server Environment (`.env`)
 ```env
 # Database Configuration
-MONGO_URI=mongodb://localhost:27017/codeforge-arena
+MONGO_URI=mongodb://localhost:27017/judge0-arena
 REDIS_URL=redis://localhost:6379
 
 # Authentication Secrets
@@ -155,8 +155,8 @@ VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id
 #### 🔥 Turbocharged Setup
 ```powershell
 # Clone the repository
-git clone https://github.com/your-username/codeforge-arena.git
-cd codeforge-arena
+git clone https://github.com/Saket6198/Judge0.git
+cd judge0-arena
 
 # Backend setup - Concurrent installation
 cd server
