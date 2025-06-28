@@ -1,4 +1,6 @@
 import { Routes, Route, Navigate } from "react-router";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { HomePage } from "./pages/HomePage";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
@@ -12,7 +14,9 @@ import { ProblemPage } from "./pages/ProblemPage";
 
 function App() {
   const dispatch = useAppDispatch();
-  const { authenticated, loading, user } = useAppSelector((state) => state.auth); // properly typed with useAppSelector
+  const { authenticated, loading, user } = useAppSelector(
+    (state) => state.auth
+  ); // properly typed with useAppSelector
 
   useEffect(() => {
     dispatch(checkAuth());
@@ -51,11 +55,29 @@ function App() {
         />
         <Route
           path="/admin"
-          element={authenticated && user.role === "admin" ? <Admin/> : <HomePage />}
+          element={
+            authenticated && user.role === "admin" ? <Admin /> : <HomePage />
+          }
         />
-        <Route path="/problem/:problemById" element={<ProblemPage />} />
+        <Route 
+          path="/problem/:problemById"
+          element={
+            authenticated ? <ProblemPage /> : <Navigate to="/login" /> 
+          }
+         />
       </Routes>
-
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }
