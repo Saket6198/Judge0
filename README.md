@@ -8,9 +8,18 @@
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Mastra](https://img.shields.io/badge/Mastra-AI_Agent_Framework-6366F1?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuNSA2LjVMMTggOEwxMy41IDE3LjVMMTIgMjJMMTAuNSAxNy41TDYgOEwxMC41IDYuNUwxMiAyWiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4K&logoColor=white)
+![Google AI](https://img.shields.io/badge/Google_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![DaisyUI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTUgOUgxOEwxNSAxNkgxMkw5IDE2SDZMOSA5SDEyVjJaIiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![Monaco Editor](https://img.shields.io/badge/Monaco_Editor-0078D4?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 **A bleeding-edge competitive programming ecosystem with AI-powered mentorship**
-
 
 </div>
 
@@ -36,6 +45,7 @@ interface PlatformVision {
 ## ⚡ Key Features & Capabilities
 
 ### 🎨 **Frontend Arsenal**
+
 - **Monaco Editor Integration**: Professional-grade code editing with IntelliSense, syntax highlighting, and multi-language support
 - **Responsive Material-UI Design**: Crafted with @mui/material and Tailwind CSS for pixel-perfect responsiveness
 - **Real-time Code Execution**: Instant feedback with detailed test case analysis
@@ -44,6 +54,7 @@ interface PlatformVision {
 - **Form Validation**: Zod + React Hook Form for bulletproof data validation
 
 ### 🔧 **Backend Infrastructure**
+
 - **Judge0 API Integration**: Secure code execution across 60+ programming languages
 - **AI-Powered Mentorship**: Mastra framework with Google AI SDK for intelligent problem-solving guidance
 - **Database Architecture**: MongoDB with Mongoose ODM for scalable data persistence
@@ -52,6 +63,7 @@ interface PlatformVision {
 - **Session Management**: Secure JWT-based authentication with HTTP-only cookies
 
 ### 🤖 **AI Tutoring System**
+
 ```typescript
 interface CodingAgent {
   role: "Expert Coding Tutor & Programming Assistant";
@@ -71,6 +83,7 @@ interface CodingAgent {
 ## 🏗️ Technical Architecture
 
 ### 📁 Project Structure
+
 ```
 judge0-arena/
 ├── 🎨 client/judge0/          # React + TypeScript Frontend
@@ -96,6 +109,7 @@ judge0-arena/
 ```
 
 ### 🔄 Data Flow Architecture
+
 ```mermaid
 graph TD
     A[React Frontend] -->|HTTP Requests| B[Express Server]
@@ -111,7 +125,9 @@ graph TD
 ## 🚀 Quick Start Guide
 
 ### 📋 Prerequisites
+
 Ensure your development environment includes:
+
 ```bash
 node >= 18.0.0
 pnpm >= 8.0.0  # Preferred package manager
@@ -122,6 +138,7 @@ redis >= 7.0
 ### 🔑 Environment Configuration
 
 #### Server Environment (`.env`)
+
 ```env
 # Database Configuration
 MONGO_URI=mongodb://localhost:27017/judge0-arena
@@ -145,6 +162,7 @@ NODE_ENV=development
 ```
 
 #### Client Environment (`.env`)
+
 ```env
 VITE_API_BASE_URL=http://localhost:8000
 VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id
@@ -153,6 +171,7 @@ VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id
 ### ⚡ Installation & Launch
 
 #### 🔥 Turbocharged Setup
+
 ```powershell
 # Clone the repository
 git clone https://github.com/Saket6198/Judge0.git
@@ -170,6 +189,7 @@ pnpm run dev  # Vite dev server with HMR
 ```
 
 #### 🐳 Docker Deployment (Optional)
+
 ```powershell
 # Full-stack deployment with Docker Compose
 docker-compose up -d
@@ -186,6 +206,7 @@ docker-compose up -d
 ## 📚 API Documentation
 
 ### 🔐 Authentication Endpoints
+
 ```typescript
 POST /user/register     # User registration with validation
 POST /user/login        # JWT-based authentication
@@ -195,6 +216,7 @@ GET  /user/profile      # Protected user profile data
 ```
 
 ### 🧩 Problem Management
+
 ```typescript
 GET    /problem/all            # Paginated problem listing
 GET    /problem/:id            # Detailed problem specification
@@ -204,6 +226,7 @@ DELETE /problem/:id            # Problem removal
 ```
 
 ### 💻 Code Submission & Execution
+
 ```typescript
 POST /submission/submit        # Code execution against test cases
 GET  /submission/history/:id   # User submission history
@@ -211,6 +234,7 @@ GET  /submission/result/:id    # Detailed execution results
 ```
 
 ### 🤖 AI Tutoring Interface
+
 ```typescript
 POST /chat/problem-help        # AI assistance for specific problems
 POST /chat/debug-code          # Code debugging assistance
@@ -222,35 +246,38 @@ POST /chat/explain-concept     # Algorithm explanation requests
 ## 🛠️ Technology Stack Deep Dive
 
 ### 🎨 **Frontend Technologies**
-| Technology | Version | Purpose | Configuration |
-|------------|---------|---------|---------------|
-| **React** | ^19.1.0 | UI Component Library | JSX with TypeScript |
-| **TypeScript** | ~5.8.3 | Type Safety & Developer Experience | Strict mode enabled |
-| **Vite** | ^6.3.5 | Build Tool & Dev Server | SWC for fast compilation |
-| **Redux Toolkit** | ^2.8.2 | State Management | RTK Query for data fetching |
-| **React Router** | ^7.6.2 | Client-side Routing | Protected route implementation |
-| **Material-UI** | ^7.1.2 | Component Library | Custom theme configuration |
-| **Tailwind CSS** | ^4.1.10 | Utility-first Styling | JIT compilation enabled |
-| **Monaco Editor** | ^4.7.0 | Code Editor | Multi-language syntax support |
-| **Axios** | ^1.10.0 | HTTP Client | Interceptors for auth handling |
+
+| Technology        | Version | Purpose                            | Configuration                  |
+| ----------------- | ------- | ---------------------------------- | ------------------------------ |
+| **React**         | ^19.1.0 | UI Component Library               | JSX with TypeScript            |
+| **TypeScript**    | ~5.8.3  | Type Safety & Developer Experience | Strict mode enabled            |
+| **Vite**          | ^6.3.5  | Build Tool & Dev Server            | SWC for fast compilation       |
+| **Redux Toolkit** | ^2.8.2  | State Management                   | RTK Query for data fetching    |
+| **React Router**  | ^7.6.2  | Client-side Routing                | Protected route implementation |
+| **Material-UI**   | ^7.1.2  | Component Library                  | Custom theme configuration     |
+| **Tailwind CSS**  | ^4.1.10 | Utility-first Styling              | JIT compilation enabled        |
+| **Monaco Editor** | ^4.7.0  | Code Editor                        | Multi-language syntax support  |
+| **Axios**         | ^1.10.0 | HTTP Client                        | Interceptors for auth handling |
 
 ### ⚙️ **Backend Technologies**
-| Technology | Version | Purpose | Configuration |
-|------------|---------|---------|---------------|
-| **Node.js** | ^18.0.0 | Runtime Environment | ES2022 target compilation |
-| **Express** | ^5.1.0 | Web Framework | Middleware-based architecture |
-| **TypeScript** | ^5.8.3 | Type Safety | Strict compilation settings |
-| **MongoDB** | ^6.15.0 | Primary Database | Mongoose ODM integration |
-| **Redis** | ^4.7.1 | Caching & Sessions | JSON data structure support |
-| **JWT** | ^9.0.2 | Authentication | RS256 asymmetric encryption |
-| **Mastra** | ^0.10.8 | AI Agent Framework | Memory-enabled conversations |
-| **Google AI SDK** | ^1.2.19 | Language Model | Gemini Pro integration |
+
+| Technology        | Version | Purpose             | Configuration                 |
+| ----------------- | ------- | ------------------- | ----------------------------- |
+| **Node.js**       | ^18.0.0 | Runtime Environment | ES2022 target compilation     |
+| **Express**       | ^5.1.0  | Web Framework       | Middleware-based architecture |
+| **TypeScript**    | ^5.8.3  | Type Safety         | Strict compilation settings   |
+| **MongoDB**       | ^6.15.0 | Primary Database    | Mongoose ODM integration      |
+| **Redis**         | ^4.7.1  | Caching & Sessions  | JSON data structure support   |
+| **JWT**           | ^9.0.2  | Authentication      | RS256 asymmetric encryption   |
+| **Mastra**        | ^0.10.8 | AI Agent Framework  | Memory-enabled conversations  |
+| **Google AI SDK** | ^1.2.19 | Language Model      | Gemini Pro integration        |
 
 ---
 
 ## 🔒 Security Implementation
 
 ### 🛡️ **Authentication & Authorization**
+
 ```typescript
 interface SecurityFeatures {
   authentication: {
@@ -259,13 +286,13 @@ interface SecurityFeatures {
     tokenExpiry: "24h access, 7d refresh";
     encryption: "bcrypt for passwords, RS256 for JWT";
   };
-  
+
   authorization: {
     roleSystem: ["user", "admin", "moderator"];
     routeProtection: "Middleware-based guards";
     apiSecurity: "Rate limiting + CORS";
   };
-  
+
   dataProtection: {
     validation: "Zod schemas on both ends";
     sanitization: "Express-validator middleware";
@@ -275,31 +302,26 @@ interface SecurityFeatures {
 ```
 
 ### 🚫 **Rate Limiting Strategy**
+
 ```typescript
 const rateLimitConfig = {
   submission: "10 requests/minute per user",
   authentication: "5 attempts/15 minutes",
   problemFetch: "100 requests/hour",
-  aiChat: "20 messages/hour per user"
+  aiChat: "20 messages/hour per user",
 };
 ```
 
 ---
 
-
 ## 📄 License & Legal
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-
-
 
 <div align="center">
 
 **Built with ❤️ by the Saket Singh**
 
-*Empowering the next generation of competitive programmers through AI-assisted learning*
-
-
+_Empowering the next generation of competitive programmers through AI-assisted learning_
 
 </div>
