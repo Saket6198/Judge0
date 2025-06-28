@@ -5,6 +5,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { client } from "../config/redis";
 import submissionModel from "../models/submissions";
+import { OAuth2Client } from "google-auth-library";
+
+// Initialize Google OAuth client
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const register = async (req: Request, res: Response) => {
   try {
@@ -62,7 +66,7 @@ const adminRegister = async (req: Request, res: Response) => {
       name: user.name,
       emailId: user.emailId,
       _id: user._id,
-      role: user.role
+      role: user.role,
     };
     const jwtSecret = process.env.JWT_SECRET;
     if (!jwtSecret)
@@ -103,11 +107,21 @@ const login = async (req: Request, res: Response) => {
     if (!user) {
       throw new Error("Invalid Credentials");
     }
+
+    // Check if this is a Google OAuth user trying to login with password
+    if (user.authProvider === "google" && !user.password) {
+      throw new Error("Please use Google Sign-In for this account");
+    }
+
+    if (!user.password) {
+      throw new Error("Invalid Credentials");
+    }
+
     const reply = {
       name: user.name,
       emailId: user.emailId,
       _id: user._id,
-      role: user.role
+      role: user.role,
     };
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
@@ -184,4 +198,94 @@ export const deleteProfile = async (req: Request, res: Response) => {
     return;
   }
 };
-export { register, adminRegister, login, logout, getProfile };
+export { register, adminRegister, login, logout, getProfile, googleLogin };
+
+const googleLogin = async (req: Request, res: Response) => {
+  try {
+    const { credential } = req.body;
+
+    if (!credential) {
+      return res.status(400).json({ error: "Google credential is required" });
+    }
+
+    // Verify the Google token
+    const ticket = await googleClient.verifyIdToken({
+      idToken: credential,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    if (!payload) {
+      return res.status(400).json({ error: "Invalid Google token" });
+    }
+
+    const { sub: googleId, email, name, email_verified } = payload;
+
+    if (!email_verified) {
+      return res.status(400).json({ error: "Google email not verified" });
+    }
+
+    // Check if user already exists with this Google ID
+    let user = await userModel.findOne({ googleId });
+
+    if (!user) {
+      // Check if user exists with this email (for linking accounts)
+      user = await userModel.findOne({ emailId: email });
+
+      if (user) {
+        // Link Google account to existing user
+        user.googleId = googleId;
+        user.authProvider = "google";
+        await user.save();
+      } else {
+        // Create new user
+        user = await userModel.create({
+          name: name || "Google User",
+          emailId: email,
+          googleId,
+          authProvider: "google",
+          role: "user",
+          // No password required for Google OAuth users
+        });
+      }
+    }
+
+    // Generate JWT token (same as regular login)
+    const jwtSecret = process.env.JWT_SECRET;
+    if (!jwtSecret) {
+      throw new Error("JWT_SECRET environment variable is not defined");
+    }
+
+    const token = jwt.sign(
+      { emailId: user.emailId, role: user.role },
+      jwtSecret,
+      { expiresIn: "1h" }
+    );
+
+    // Set cookie (same as regular login)
+    res.cookie("token", token, {
+      maxAge: 60 * 60 * 1000, // 1 hour
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    // Return user data (same format as regular login)
+    const reply = {
+      name: user.name,
+      emailId: user.emailId,
+      _id: user._id,
+      role: user.role,
+    };
+
+    res.status(200).json({
+      user: reply,
+      message: "Google login successful",
+    });
+  } catch (err: any) {
+    console.error("Google login error:", err);
+    res.status(400).json({
+      error: err.message || "Google authentication failed",
+    });
+  }
+};
