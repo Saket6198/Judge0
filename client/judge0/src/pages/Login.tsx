@@ -3,9 +3,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useNavigate } from "react-router";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { loginUser } from "../authSlice";
+import { loginUser, googleLogin } from "../authSlice";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import { GoogleLogin } from "@react-oauth/google";
+import type { CredentialResponse } from "@react-oauth/google";
 
 // Zod schema
 const signUpSchema = z.object({
@@ -41,6 +43,19 @@ export const Login = () => {
       })
     );
   };
+
+  const handleGoogleSuccess = (credentialResponse: CredentialResponse) => {
+    if (credentialResponse.credential) {
+      dispatch(googleLogin(credentialResponse.credential));
+    } else {
+      toast.error("Google login failed. Please try again.");
+    }
+  };
+
+  const handleGoogleError = () => {
+    toast.error("Google login failed. Please try again.");
+  };
+
   useEffect(() => {
     if (error) {
       const toastId = error; // Use error message as ID
@@ -158,9 +173,17 @@ export const Login = () => {
             {/* Divider and Socials */}
             <div className="divider">OR</div>
             <div className="space-y-3">
-              <button className="btn btn-outline btn-block">
-                Continue with Google
-              </button>
+              <div className="w-full flex justify-center">
+                <GoogleLogin
+                  onSuccess={handleGoogleSuccess}
+                  onError={handleGoogleError}
+                  useOneTap={false}
+                  auto_select={false}
+                  theme="outline"
+                  size="large"
+                  width="400"
+                />
+              </div>
             </div>
 
             {/* Sign in link */}
