@@ -33,6 +33,24 @@ const loginUser = createAsyncThunk(
   }
 );
 
+const googleLogin = createAsyncThunk(
+  "user/googleLogin",
+  async (credential: string, { rejectWithValue }) => {
+    try {
+      const response = await axiosClient.post("/user/google-login", {
+        credential,
+      });
+      console.log(response.data);
+      return response.data.user;
+    } catch (err: any) {
+      return rejectWithValue({
+        message:
+          err.response?.data?.error || err.message || "Google login failed",
+      });
+    }
+  }
+);
+
 const checkAuth = createAsyncThunk(
   "user/checkAuth",
   async (_, { rejectWithValue }) => {
@@ -133,6 +151,27 @@ const authSlice = createSlice({
             : "Login failed";
       })
 
+      // for Google login
+      .addCase(googleLogin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+
+      .addCase(googleLogin.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.authenticated = !!action.payload; // if payload is not null or undefined, authenticated will be false
+      })
+      .addCase(googleLogin.rejected, (state, action) => {
+        state.loading = false;
+        state.error =
+          action.payload &&
+          typeof action.payload === "object" &&
+          "message" in action.payload
+            ? action.payload.message
+            : "Google login failed";
+      })
+
       // for checkAuth
       .addCase(checkAuth.pending, (state) => {
         state.loading = true;
@@ -173,5 +212,5 @@ const authSlice = createSlice({
   },
 });
 
-export { registerUser, loginUser, checkAuth, logoutUser };
+export { registerUser, loginUser, googleLogin, checkAuth, logoutUser };
 export default authSlice.reducer;
