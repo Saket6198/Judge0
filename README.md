@@ -11,7 +11,7 @@
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
 
-**A modern competitive programming platform with AI-powered assistance and video solutions**
+**A modern competitive programming platform with AI-powered assistance**
 
 </div>
 
