@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { HomePage } from "./pages/HomePage";
 import { Login } from "./pages/Login";
@@ -59,25 +58,11 @@ function App() {
             authenticated && user.role === "admin" ? <Admin /> : <HomePage />
           }
         />
-        <Route 
+        <Route
           path="/problem/:problemById"
-          element={
-            authenticated ? <ProblemPage /> : <Navigate to="/login" /> 
-          }
-         />
+          element={authenticated ? <ProblemPage /> : <Navigate to="/login" />}
+        />
       </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
     </>
   );
 }
