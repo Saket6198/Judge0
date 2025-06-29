@@ -10,6 +10,8 @@ import canvaSvg from "./assets/canva.svg";
 import { Profile } from "./pages/Profile";
 import { Admin } from "./pages/Admin";
 import { ProblemPage } from "./pages/ProblemPage";
+import { UploadVideo } from "./pages/UploadVideo";
+import { UploadPage } from "./pages/UploadPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -61,6 +63,14 @@ function App() {
         <Route
           path="/problem/:problemById"
           element={authenticated ? <ProblemPage /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/upload-video"
+          element={authenticated ? <UploadVideo /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/upload-video/:problemId"
+          element={authenticated ? <UploadPage /> : <Navigate to="/login" />}
         />
       </Routes>
     </>

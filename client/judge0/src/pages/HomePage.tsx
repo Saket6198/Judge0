@@ -112,6 +112,9 @@ export const HomePage = () => {
                   </li>
                 )}
                 <li>
+                  <Link to="/upload-video">Upload Video</Link>
+                </li>
+                <li>
                   <a onClick={handleLogout}>Logout</a>
                 </li>{" "}
               </ul>

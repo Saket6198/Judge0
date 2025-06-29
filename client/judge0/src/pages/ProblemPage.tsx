@@ -27,6 +27,11 @@ interface Problem {
     solution: string;
     _id: string;
   }>;
+  // Video properties
+  secureUrl?: string;
+  cloudinaryPublicId?: string;
+  thumbnailUrl?: string;
+  duration?: number;
 }
 
 interface TestResult {
@@ -108,6 +113,12 @@ export function ProblemPage() {
         const response = await axiosClient.get(
           `/problem/problemById/${problemById}`
         );
+        console.log("Problem data received:", response.data);
+        console.log("Video data in problem:", {
+          secureUrl: response.data.secureUrl,
+          duration: response.data.duration,
+          thumbnailUrl: response.data.thumbnailUrl,
+        });
         setProblem(response.data);
         // Set default language if available
         if (response.data.startCode && response.data.startCode.length > 0) {
@@ -373,7 +384,7 @@ export function ProblemPage() {
     sendChatMessage(chatInput);
   };
 
-  const leftTabs = ["Description", "Solutions", "Chat With AI"];
+  const leftTabs = ["Description", "Solutions", "Videos", "Chat With AI"];
   const rightTabs = ["Code", "Test Cases", "Results"];
 
   const renderLeftContent = () => {
@@ -427,7 +438,54 @@ export function ProblemPage() {
             )}
           </div>
         );
-      case 2: // Chat With AI
+      case 2: // Videos
+        return (
+          <div className="p-4 overflow-y-auto">
+            <h2 className="text-xl font-bold mb-4">Solution Videos</h2>
+            {problem.secureUrl ? (
+              <div className="space-y-4">
+                <video
+                  controls
+                  className="w-full rounded-lg"
+                  poster={problem.thumbnailUrl}
+                  preload="metadata"
+                >
+                  <source src={problem.secureUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {problem.duration && (
+                  <div className="text-sm text-gray-400">
+                    Duration: {Math.floor(problem.duration / 60)}:
+                    {(problem.duration % 60).toFixed(0).padStart(2, "0")}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="text-center py-8 text-gray-400">
+                <svg
+                  className="w-16 h-16 mx-auto mb-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+                <h3 className="text-lg font-semibold mb-2">
+                  No Video Available
+                </h3>
+                <p className="text-sm">
+                  Solution video is coming soon! Check back later.
+                </p>
+              </div>
+            )}
+          </div>
+        );
+      case 3: // Chat With AI
         return (
           <div className="flex flex-col overflow-y-auto max-h-screen  ">
             {/* Chat Header */}
