@@ -185,33 +185,15 @@ export function ProblemPage() {
     return editorRef.current?.getValue() || currentCode || "";
   };
 
-  const getLanguageStartCode = () => {
-    if (!problem) return "";
-
-    // If we have current code, use it (preserves changes)
-    if (currentCode) {
-      return currentCode;
-    }
-
-    // Otherwise, use the initial code for the selected language
-    const lang = problem.startCode.find((l) => l.language === selectedLanguage);
-    return lang?.initialCode || "";
-  };
-
   const getMonacoLanguage = () => {
     return languageMapping[selectedLanguage.toLowerCase()] || "javascript";
   };
 
   const handleLanguageChange = (language: string) => {
-    // Save current code before switching languages
-    if (editorRef.current) {
-      setCurrentCode(editorRef.current.getValue());
-    }
-
     setSelectedLanguage(language);
 
-    // Update current code to the start code for new language if no code exists
-    if (!currentCode && problem) {
+    // Set the starter code for the new language
+    if (problem) {
       const lang = problem.startCode.find((l) => l.language === language);
       if (lang) {
         setCurrentCode(lang.initialCode);
@@ -427,7 +409,7 @@ export function ProblemPage() {
         );
       case 1: // Solutions
         return (
-          <div className="p-4 overflow-y-auto max-h-full">
+          <div className="p-4 overflow-y-auto max-h-screen">
             <h2 className="text-xl font-bold mb-4">Reference Solutions</h2>
             {problem.referenceSolutions?.map((solution, index) => (
               <div key={index} className="mb-6">
@@ -445,9 +427,9 @@ export function ProblemPage() {
             )}
           </div>
         );
-      case 2: // Editorial
+      case 2: // Chat With AI
         return (
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col overflow-y-auto max-h-screen  ">
             {/* Chat Header */}
             <div className="p-4 border-b border-gray-700">
               <h2 className="text-xl font-bold mb-2">AI Coding Assistant</h2>
@@ -658,7 +640,7 @@ export function ProblemPage() {
                 theme="vs-dark"
                 height="100%"
                 language={getMonacoLanguage()}
-                value={getLanguageStartCode()}
+                value={currentCode}
                 onMount={handleEditorDidMount}
                 onChange={(value) => {
                   if (value !== undefined) {
@@ -679,11 +661,11 @@ export function ProblemPage() {
         );
       case 1: // Test Cases
         return (
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col overflow-y-auto max-h-screen">
             <h3 className="text-lg font-semibold mb-3 p-4 pb-0">
               Test Case Results
             </h3>
-            <div className="flex-1 overflow-y-auto px-4 pb-4">
+            <div className="flex-1  px-4 pb-4">
               {!hasRun ? (
                 <div className="text-gray-400 text-center py-8">
                   Click "Run" to test your code with test cases
@@ -758,11 +740,11 @@ export function ProblemPage() {
         );
       case 2: // Results
         return (
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col overflow-y-auto max-h-screen">
             <h3 className="text-lg font-semibold mb-3 p-4 pb-0">
               Submission Results
             </h3>
-            <div className="flex-1 overflow-y-auto px-4 pb-4">
+            <div className="flex-1 overflow-y-auto max-h-screen px-4 pb-4">
               {!hasSubmitted ? (
                 <div className="text-gray-400 text-center py-8">
                   Submit your solution to see results
