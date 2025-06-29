@@ -1,25 +1,17 @@
-# 🔥Judge0 - Next-Gen Competitive Programming Platform
+# 🔥 Judge0 - Next-Gen Competitive Programming Platform
 
 <div align="center">
 
-![Judge0](https://img.shields.io/badge/Judge0-Powered-orange?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjRkY2NjAwIi8+Cjwvc3ZnPgo=)
+![Judge0](https://img.shields.io/badge/Judge0-Powered-orange?style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Mastra](https://img.shields.io/badge/Mastra-AI_Agent_Framework-6366F1?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuNSA2LjVMMTggOEwxMy41IDE3LjVMMTIgMjJMMTAuNSAxNy41TDYgOEwxMC41IDYuNUwxMiAyWiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4K&logoColor=white)
-![Google AI](https://img.shields.io/badge/Google_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![DaisyUI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTUgOUgxOEwxNSAxNkgxMkw5IDE2SDZMOSA5SDEyVjJaIiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
-![Monaco Editor](https://img.shields.io/badge/Monaco_Editor-0078D4?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
 
-**A bleeding-edge competitive programming ecosystem with AI-powered mentorship**
+**A modern competitive programming platform with AI-powered assistance and video solutions**
 
 </div>
 
@@ -27,56 +19,52 @@
 
 ## 🎯 Project Overview
 
-**Judge0** is a sophisticated, full-stack competitive programming platform that transcends traditional online judges by integrating AI-powered mentorship, real-time collaboration, and enterprise-grade code execution infrastructure. Built on the robust Judge0 API foundation, this platform delivers a seamless coding experience with advanced problem-solving assistance.
-
-### 🧠 Core Philosophy
-
-```typescript
-interface PlatformVision {
-  mission: "Democratize competitive programming education through AI-assisted learning";
-  target: "Next-generation developers & algorithmic problem solvers";
-  approach: "Guided learning over brute-force problem solving";
-  innovation: "AI tutoring meets traditional judge systems";
-}
-```
+**Judge0** is a full-stack competitive programming platform that combines traditional online judge functionality with modern AI assistance and multimedia learning features. Users can solve problems, get AI-powered hints, upload video solutions, and track their progress in a comprehensive coding environment.
 
 ---
 
-## ⚡ Key Features & Capabilities
+## ⚡ Key Features
 
-### 🎨 **Frontend Arsenal**
+### 🔐 **Authentication System**
+- **JWT Token Authentication** - Secure session management with HTTP-only cookies
+- **Google OAuth Integration** - One-click sign-in with Google accounts
+- **User Profile Management** - Track solved problems and view personal statistics
 
-- **Monaco Editor Integration**: Professional-grade code editing with IntelliSense, syntax highlighting, and multi-language support
-- **Responsive Material-UI Design**: Crafted with @mui/material and Tailwind CSS for pixel-perfect responsiveness
-- **Real-time Code Execution**: Instant feedback with detailed test case analysis
-- **Advanced Authentication**: OAuth2 Google integration with JWT-based session management
-- **State Management**: Redux Toolkit with TypeScript for predictable state mutations
-- **Form Validation**: Zod + React Hook Form for bulletproof data validation
+### � **AI-Powered Problem Generation & Assistance**
+- **AI Problem Generator** - Create unlimited custom practice problems using AI
+- **Contextual Chat Assistant** - Get hints and explanations while solving problems
+- **Smart Problem Recommendations** - AI suggests problems based on your skill level
 
-### 🔧 **Backend Infrastructure**
+### 📝 **Problem Management**
+- **Custom Problem Creation** - Build your own coding challenges with test cases
+- **CRUD Operations** - Full admin panel for problem management
+- **Multi-language Support** - Solutions in C++, Java, Python, JavaScript, and C
+- **Advanced Test Case System** - Visible and hidden test cases with detailed feedback
 
-- **Judge0 API Integration**: Secure code execution across 60+ programming languages
-- **AI-Powered Mentorship**: Mastra framework with Google AI SDK for intelligent problem-solving guidance
-- **Database Architecture**: MongoDB with Mongoose ODM for scalable data persistence
-- **Caching Layer**: Redis-powered caching for lightning-fast response times
-- **Rate Limiting**: Advanced middleware for API protection and fair usage
-- **Session Management**: Secure JWT-based authentication with HTTP-only cookies
+### 🎥 **Video Solution System**
+- **Upload Video Solutions** - Share your problem-solving approach and explanations via video
+- **Cloudinary CDN Integration** - Fast, reliable video streaming and storage with automatic optimization
+- **Video Management** - Upload, view, and delete video solutions for any problem with admin controls
+- **Real-time Status Updates** - Instant feedback on upload progress and video availability
+- **Video Player Integration** - Seamless video playback directly in the problem interface
 
-### 🤖 **AI Tutoring System**
+### � **User Dashboard & Analytics**
+- **Personal Statistics** - View total problems solved, difficulty breakdown
+- **Progress Tracking** - Monitor your coding journey and improvement
+- **Problem History** - Access all previously solved problems
+- **Performance Metrics** - Detailed submission history and results
 
-```typescript
-interface CodingAgent {
-  role: "Expert Coding Tutor & Programming Assistant";
-  capabilities: [
-    "Step-by-step problem analysis",
-    "Code debugging assistance",
-    "Algorithm optimization suggestions",
-    "Educational explanations",
-    "Hint generation system"
-  ];
-  approach: "Socratic method for guided learning";
-}
-```
+### 💻 **Advanced Code Editor**
+- **Monaco Editor Integration** - Professional-grade code editing experience
+- **Syntax Highlighting** - Support for multiple programming languages
+- **Real-time Code Execution** - Instant feedback with detailed test results
+- **Code Submission History** - Track all your submission attempts
+
+### 🛠 **Admin Panel**
+- **Problem Management** - Create, update, and delete problems
+- **User Management** - Monitor user activities and statistics
+- **Video Administration** - Manage video content across the platform
+- **System Analytics** - Platform usage and performance insights
 
 ---
 
@@ -85,39 +73,27 @@ interface CodingAgent {
 ### 📁 Project Structure
 
 ```
-judge0-arena/
-├── 🎨 client/judge0/          # React + TypeScript Frontend
+Judge0/
+├── client/judge0/              # React Frontend
 │   ├── src/
-│   │   ├── pages/             # Route components
-│   │   ├── store/             # Redux state management
-│   │   ├── utils/             # Axios client & utilities
-│   │   └── assets/            # Static resources
-│   └── package.json           # Frontend dependencies
+│   │   ├── pages/              # Application pages
+│   │   ├── store/              # Redux state management
+│   │   ├── utils/              # Utility functions
+│   │   └── assets/             # Static assets
+│   └── package.json
 │
-├── ⚙️ server/                 # Node.js + Express Backend
+├── server/                     # Node.js Backend
 │   ├── src/
-│   │   ├── agents/            # AI tutoring agents
-│   │   ├── config/            # Database & Redis config
-│   │   ├── controllers/       # Business logic handlers
-│   │   ├── middleware/        # Auth & security layers
-│   │   ├── models/            # MongoDB schemas
-│   │   ├── routes/            # API endpoint definitions
-│   │   └── utils/             # Helper functions
-│   └── package.json           # Backend dependencies
+│   │   ├── agents/             # AI problem generation
+│   │   ├── config/             # Database configurations
+│   │   ├── controllers/        # API controllers
+│   │   ├── middleware/         # Authentication & security
+│   │   ├── models/             # Database models
+│   │   ├── routes/             # API routes
+│   │   └── utils/              # Helper utilities
+│   └── package.json
 │
-└── 📋 README.md               # This comprehensive guide
-```
-
-### 🔄 Data Flow Architecture
-
-```mermaid
-graph TD
-    A[React Frontend] -->|HTTP Requests| B[Express Server]
-    B -->|Query/Mutation| C[MongoDB]
-    B -->|Session Cache| D[Redis]
-    B -->|Code Execution| E[Judge0 API]
-    B -->|AI Assistance| F[Google AI SDK]
-    F -->|Context| G[Mastra Memory]
+└── README.md
 ```
 
 ---
@@ -126,202 +102,164 @@ graph TD
 
 ### 📋 Prerequisites
 
-Ensure your development environment includes:
-
 ```bash
 node >= 18.0.0
-pnpm >= 8.0.0  # Preferred package manager
+npm or pnpm
 mongodb >= 6.0
 redis >= 7.0
 ```
 
-### 🔑 Environment Configuration
+### 🔑 Environment Setup
 
 #### Server Environment (`.env`)
 
 ```env
-# Database Configuration
-MONGO_URI=mongodb://localhost:27017/judge0-arena
+# Database
+MONGO_URI=mongodb://localhost:27017/judge0
 REDIS_URL=redis://localhost:6379
 
-# Authentication Secrets
-JWT_SECRET=your-ultra-secure-jwt-secret-key
-GOOGLE_CLIENT_ID=your-google-oauth-client-id
-GOOGLE_CLIENT_SECRET=your-google-oauth-client-secret
+# Authentication
+JWT_SECRET=your-jwt-secret
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
 
-# Judge0 API Configuration
+# Judge0 API
 JUDGE0_API_URL=https://judge0-ce.p.rapidapi.com
 JUDGE0_API_KEY=your-rapidapi-key
 
-# AI Integration
-GOOGLE_AI_API_KEY=your-google-ai-api-key
+# AI & Cloud Services
+GOOGLE_AI_API_KEY=your-google-ai-key
+CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
+CLOUDINARY_API_KEY=your-cloudinary-api-key
+CLOUDINARY_API_SECRET=your-cloudinary-api-secret
 
-# Server Configuration
+# Server
 PORT=8000
-NODE_ENV=development
 ```
 
 #### Client Environment (`.env`)
 
 ```env
-VITE_API_BASE_URL=http://localhost:8000
-VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id
+VITE_GOOGLE_CLIENT_ID=your-google-client-id
 ```
 
 ### ⚡ Installation & Launch
 
-#### 🔥 Turbocharged Setup
+```bash
+# Clone repository
+git clone https://github.com/your-username/Judge0.git
+cd Judge0
 
-```powershell
-# Clone the repository
-git clone https://github.com/Saket6198/Judge0.git
-cd judge0-arena
-
-# Backend setup - Concurrent installation
+# Backend setup
 cd server
-pnpm install
-pnpm run dev  # Launches with ts-node-dev hot reload
+npm install
+npm run dev
 
-# Frontend setup - New terminal
+# Frontend setup (new terminal)
 cd ../client/judge0
-pnpm install
-pnpm run dev  # Vite dev server with HMR
+npm install
+npm run dev
 ```
 
-#### 🐳 Docker Deployment (Optional)
+**Access Points:**
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
 
-```powershell
-# Full-stack deployment with Docker Compose
-docker-compose up -d
+---
 
-# Access points:
-# Frontend: http://localhost:5173
-# Backend API: http://localhost:8000
-# MongoDB: localhost:27017
-# Redis: localhost:6379
+## 📚 API Endpoints
+
+### Authentication
+```
+POST /user/register     # User registration
+POST /user/login        # User login
+POST /user/google-auth  # Google OAuth login
+POST /user/logout       # User logout
+GET  /user/profile      # Get user profile
+```
+
+### Problems
+```
+GET    /problem/getAllProblem    # Get all problems
+GET    /problem/problemById/:id  # Get specific problem
+POST   /problem/create           # Create new problem (Admin)
+PUT    /problem/update/:id       # Update problem (Admin)
+DELETE /problem/delete/:id       # Delete problem (Admin)
+GET    /problem/user             # Get user's solved problems
+```
+
+### Code Submission
+```
+POST /submission/submit/:id      # Submit code solution
+GET  /submission/submittedProblem/:id  # Get submission history
+POST /submission/run/:id         # Run code against test cases
+```
+
+### Video Management
+```
+GET    /video/create             # Get upload signature
+POST   /video/save               # Save video metadata
+DELETE /video/delete/:problemId  # Delete video
+```
+
+### AI Chat
+```
+POST /chat/problemSolver         # Get AI assistance for problems
+```
+
+### Problem Generation
+```
+POST /problemGenerator/createProblem  # Generate problems with AI
 ```
 
 ---
 
-## 📚 API Documentation
+## 🛠️ Technology Stack
 
-### 🔐 Authentication Endpoints
+### Frontend
+- **React 19** - Modern UI framework
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool
+- **Redux Toolkit** - State management
+- **React Router** - Client-side routing
+- **Monaco Editor** - Code editing
+- **DaisyUI + Tailwind CSS** - Styling
+- **Axios** - HTTP client
 
-```typescript
-POST /user/register     # User registration with validation
-POST /user/login        # JWT-based authentication
-POST /user/google-auth  # OAuth2 Google sign-in
-POST /user/logout       # Secure session termination
-GET  /user/profile      # Protected user profile data
-```
-
-### 🧩 Problem Management
-
-```typescript
-GET    /problem/all            # Paginated problem listing
-GET    /problem/:id            # Detailed problem specification
-POST   /problem/create         # Admin-only problem creation
-PUT    /problem/:id            # Problem modification
-DELETE /problem/:id            # Problem removal
-```
-
-### 💻 Code Submission & Execution
-
-```typescript
-POST /submission/submit        # Code execution against test cases
-GET  /submission/history/:id   # User submission history
-GET  /submission/result/:id    # Detailed execution results
-```
-
-### 🤖 AI Tutoring Interface
-
-```typescript
-POST /chat/problem-help        # AI assistance for specific problems
-POST /chat/debug-code          # Code debugging assistance
-POST /chat/explain-concept     # Algorithm explanation requests
-```
+### Backend
+- **Node.js + Express** - Server framework
+- **TypeScript** - Type safety
+- **MongoDB + Mongoose** - Database
+- **Redis** - Caching and sessions
+- **JWT** - Authentication
+- **Cloudinary** - Video/image storage
+- **Google AI SDK** - AI integration
+- **Judge0 API** - Code execution
 
 ---
 
-## 🛠️ Technology Stack Deep Dive
+## 🔒 Security Features
 
-### 🎨 **Frontend Technologies**
-
-| Technology        | Version | Purpose                            | Configuration                  |
-| ----------------- | ------- | ---------------------------------- | ------------------------------ |
-| **React**         | ^19.1.0 | UI Component Library               | JSX with TypeScript            |
-| **TypeScript**    | ~5.8.3  | Type Safety & Developer Experience | Strict mode enabled            |
-| **Vite**          | ^6.3.5  | Build Tool & Dev Server            | SWC for fast compilation       |
-| **Redux Toolkit** | ^2.8.2  | State Management                   | RTK Query for data fetching    |
-| **React Router**  | ^7.6.2  | Client-side Routing                | Protected route implementation |
-| **Material-UI**   | ^7.1.2  | Component Library                  | Custom theme configuration     |
-| **Tailwind CSS**  | ^4.1.10 | Utility-first Styling              | JIT compilation enabled        |
-| **Monaco Editor** | ^4.7.0  | Code Editor                        | Multi-language syntax support  |
-| **Axios**         | ^1.10.0 | HTTP Client                        | Interceptors for auth handling |
-
-### ⚙️ **Backend Technologies**
-
-| Technology        | Version | Purpose             | Configuration                 |
-| ----------------- | ------- | ------------------- | ----------------------------- |
-| **Node.js**       | ^18.0.0 | Runtime Environment | ES2022 target compilation     |
-| **Express**       | ^5.1.0  | Web Framework       | Middleware-based architecture |
-| **TypeScript**    | ^5.8.3  | Type Safety         | Strict compilation settings   |
-| **MongoDB**       | ^6.15.0 | Primary Database    | Mongoose ODM integration      |
-| **Redis**         | ^4.7.1  | Caching & Sessions  | JSON data structure support   |
-| **JWT**           | ^9.0.2  | Authentication      | RS256 asymmetric encryption   |
-| **Mastra**        | ^0.10.8 | AI Agent Framework  | Memory-enabled conversations  |
-| **Google AI SDK** | ^1.2.19 | Language Model      | Gemini Pro integration        |
+- **JWT Authentication** with HTTP-only cookies
+- **Google OAuth2** integration
+- **Rate limiting** on API endpoints
+- **Input validation** and sanitization
+- **CORS** protection
+- **Password encryption** with bcrypt
+- **Secure file uploads** to Cloudinary
 
 ---
 
-## 🔒 Security Implementation
+## 📄 License
 
-### 🛡️ **Authentication & Authorization**
-
-```typescript
-interface SecurityFeatures {
-  authentication: {
-    strategy: "JWT + HTTP-only cookies";
-    providers: ["Local", "Google OAuth2"];
-    tokenExpiry: "24h access, 7d refresh";
-    encryption: "bcrypt for passwords, RS256 for JWT";
-  };
-
-  authorization: {
-    roleSystem: ["user", "admin", "moderator"];
-    routeProtection: "Middleware-based guards";
-    apiSecurity: "Rate limiting + CORS";
-  };
-
-  dataProtection: {
-    validation: "Zod schemas on both ends";
-    sanitization: "Express-validator middleware";
-    encryption: "AES-256 for sensitive data";
-  };
-}
-```
-
-### 🚫 **Rate Limiting Strategy**
-
-```typescript
-const rateLimitConfig = {
-  submission: "10 requests/minute per user",
-  authentication: "5 attempts/15 minutes",
-  problemFetch: "100 requests/hour",
-  aiChat: "20 messages/hour per user",
-};
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-## 📄 License & Legal
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 <div align="center">
 
-**Built with ❤️ by the Saket Singh**
+**Built with ❤️ by Saket Singh**
 
-_Empowering the next generation of competitive programmers through AI-assisted learning_
+*Empowering competitive programmers with AI-assisted learning and video solutions*
 
 </div>
