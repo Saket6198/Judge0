@@ -98,51 +98,6 @@ Judge0/
 
 ---
 
-## 🚀 Quick Start Guide
-
-### 📋 Prerequisites
-
-```bash
-node >= 18.0.0
-npm or pnpm
-mongodb >= 6.0
-redis >= 7.0
-```
-
-### 🔑 Environment Setup
-
-#### Server Environment (`.env`)
-
-```env
-# Database
-MONGO_URI=mongodb://localhost:27017/judge0
-REDIS_URL=redis://localhost:6379
-
-# Authentication
-JWT_SECRET=your-jwt-secret
-GOOGLE_CLIENT_ID=your-google-client-id
-GOOGLE_CLIENT_SECRET=your-google-client-secret
-
-# Judge0 API
-JUDGE0_API_URL=https://judge0-ce.p.rapidapi.com
-JUDGE0_API_KEY=your-rapidapi-key
-
-# AI & Cloud Services
-GOOGLE_AI_API_KEY=your-google-ai-key
-CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
-CLOUDINARY_API_KEY=your-cloudinary-api-key
-CLOUDINARY_API_SECRET=your-cloudinary-api-secret
-
-# Server
-PORT=8000
-```
-
-#### Client Environment (`.env`)
-
-```env
-VITE_GOOGLE_CLIENT_ID=your-google-client-id
-```
-
 ### ⚡ Installation & Launch
 
 ```bash
