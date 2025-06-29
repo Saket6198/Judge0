@@ -7,6 +7,7 @@ dotenv.config();
 
 export const problemGeneratorAgent = new Agent({
   name: "Problem Generator Assistant",
+  
   instructions: `You are an expert competitive programming problem generator. Your task is to create complete, well-structured coding problems based on user descriptions.
 
 CRITICAL: You must respond ONLY with a valid JSON object. Do not include any explanations, markdown formatting, code blocks, or additional text outside the JSON.
