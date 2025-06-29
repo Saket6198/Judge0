@@ -1,29 +1,24 @@
 import express from "express";
+import {
+  createProblem,
+  getAllProblems,
+  getProblemById,
+  updateProblem,
+  deleteProblem,
+  getProblemsSolvedByUser,
+} from "../controllers/userProblem";
 import { adminMiddleware } from "../middleware/adminMiddleware";
-import {createProblem, deleteProblem, getProblemById, updateProblem, getAllProblems, getProblemsSolvedByUser } from "../controllers/userProblem";
 import { userMiddleware } from "../middleware/userMiddleware";
-const app = express();
-app.use(express.json());
+import { generateProblem } from "../controllers/problemGeneratorController";
+
 const problemRouter = express.Router();
 
-// Create problem route
-problemRouter.post('/create', adminMiddleware, createProblem);
-
-// Update a problem route
-problemRouter.patch('/:id', adminMiddleware, updateProblem);
-
-//delete a problem route
-problemRouter.delete('/delete/:id', adminMiddleware, deleteProblem);
-
-// Get a particular problem route
-problemRouter.get('/problemById/:id',userMiddleware, getProblemById);
-
-// Get all problems route
-problemRouter.get('/getAllProblem',userMiddleware, getAllProblems);
-
-
-// Get problems by user route
-problemRouter.get("/user",userMiddleware, getProblemsSolvedByUser);
+problemRouter.post("/create", adminMiddleware, createProblem as any);
+problemRouter.get("/getAllProblem", getAllProblems as any);
+problemRouter.get("/problemById/:id", getProblemById as any);
+problemRouter.get("/user", userMiddleware, getProblemsSolvedByUser as any);
+problemRouter.put("/:id", adminMiddleware, updateProblem as any);
+problemRouter.delete("/delete/:id", adminMiddleware, deleteProblem as any);
+problemRouter.post("/generate", adminMiddleware, generateProblem as any);
 
 export default problemRouter;
-

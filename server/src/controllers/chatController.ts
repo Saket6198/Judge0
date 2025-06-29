@@ -34,7 +34,6 @@ export const chatWithAgent = async (req: Request, res: Response) => {
       });
     }
 
-    // If frontend provides problem data, use it; otherwise fetch from database
     let problem;
     let title = problemTitle;
     let description = problemDescription;

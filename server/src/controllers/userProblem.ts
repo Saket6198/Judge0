@@ -169,9 +169,7 @@ const getProblemById = async (req: Request, res: Response) => {
     }
     const problem = await problemModel
       .findById(id)
-      .select(
-        "-HiddenTestCases -referenceSolution -problemCreator -createdAt -updatedAt -__v"
-      );
+      .select("-HiddenTestCases -problemCreator -createdAt -updatedAt -__v");
     if (!problem) {
       res.status(404).json({ error: "Problem not found" });
       return; // Return void instead of Response object
@@ -206,12 +204,17 @@ const getProblemsSolvedByUser = async (req: Request, res: Response) => {
       path: "problemSolved",
       select: "_id title difficulty tags",
     });
-    res.status(200).json(user);
-    // const count = req.result.problemSolved.length;
-    // res.status(200).json({count: count});
+
+    // Return the solved problems in the expected format
+    res.status(200).json({
+      problemSolved: user.problemSolved || [],
+    });
   } catch (err: any) {
     console.error("Error in getProblemsSolvedByUser:", err);
-    res.status(500).json({ error: "Server Error" });
+    res.status(500).json({
+      error: "Server Error",
+      problemSolved: [], // Return empty array on error to prevent frontend crashes
+    });
   }
 };
 
