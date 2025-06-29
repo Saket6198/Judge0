@@ -40,10 +40,15 @@ export const HomePage = () => {
         const response = await axiosClient.get("/problem/user");
         setSolvedProblems(response.data.problemSolved || []);
       } catch (err: any) {
-        console.error(
-          "Error fetching solved problems:",
-          err.response?.data?.error || err.message
-        );
+        // Only log serious errors, not when user simply has no solved problems
+        if (err.response?.status !== 404) {
+          console.error(
+            "Error fetching solved problems:",
+            err.response?.data?.error || err.message
+          );
+        }
+        // Always set empty array on error to prevent UI issues
+        setSolvedProblems([]);
       }
     };
     fetchProblems();

@@ -22,7 +22,7 @@ interface Problem {
     initialCode: string;
     _id: string;
   }>;
-  referenceSolutions: Array<{
+  referenceSolution: Array<{
     language: string;
     solution: string;
     _id: string;
@@ -411,7 +411,7 @@ export function ProblemPage() {
         return (
           <div className="p-4 overflow-y-auto max-h-screen">
             <h2 className="text-xl font-bold mb-4">Reference Solutions</h2>
-            {problem.referenceSolutions?.map((solution, index) => (
+            {problem.referenceSolution?.map((solution, index) => (
               <div key={index} className="mb-6">
                 <h3 className="text-lg font-semibold mb-2">
                   {solution.language}

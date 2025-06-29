@@ -104,6 +104,11 @@ export const Admin = () => {
   const [problems, setProblems] = useState<any[]>([]);
   const [selectedProblem, setSelectedProblem] = useState<any>(null);
 
+  // AI Problem Generation states
+  const [problemDescription, setProblemDescription] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [showAIGenerator, setShowAIGenerator] = useState(false);
+
   // Default values for the form
   const defaultValues: Partial<AdminProblemData> = {
     visibleTestCases: [
@@ -151,6 +156,8 @@ export const Admin = () => {
     handleSubmit,
     formState: { errors },
     watch,
+    setValue,
+    reset,
   } = useForm<AdminProblemData>({
     resolver: zodResolver(adminProblemSchema),
     defaultValues: defaultValues as any,
@@ -301,6 +308,59 @@ export const Admin = () => {
     }
   };
 
+  // Function to generate problem using AI
+  const generateProblemWithAI = async () => {
+    if (!problemDescription.trim()) {
+      toast.error("Please enter a problem description");
+      return;
+    }
+
+    try {
+      setIsGenerating(true);
+      const response = await axiosClient.post("/problem/generate", {
+        description: problemDescription,
+      });
+
+      if (response.data.success) {
+        const generatedProblem = response.data.problem;
+
+        console.log("Generated problem received:", generatedProblem);
+
+        // Reset form to default values first
+        reset(defaultValues);
+
+        // Small delay to ensure form is reset
+        setTimeout(() => {
+          // Set the generated values
+          setValue("title", generatedProblem.title);
+          setValue("description", generatedProblem.description);
+          setValue("difficulty", generatedProblem.difficulty);
+          setValue("tags", generatedProblem.tags);
+          setValue("visibleTestCases", generatedProblem.visibleTestCases);
+          setValue("HiddenTestCases", generatedProblem.HiddenTestCases);
+          setValue("startCode", generatedProblem.startCode);
+          setValue("referenceSolution", generatedProblem.referenceSolution);
+
+          toast.success(
+            "Problem generated successfully! Review and edit as needed."
+          );
+        }, 100);
+
+        setShowAIGenerator(false);
+        setProblemDescription("");
+      } else {
+        toast.error("Failed to generate problem");
+      }
+    } catch (err: any) {
+      console.error("Error generating problem:", err);
+      toast.error(
+        `Error generating problem: ${err.response?.data?.error || err.message}`
+      );
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-base-100">
       {/* Navigation Bar */}
@@ -360,6 +420,143 @@ export const Admin = () => {
               <h2 className="card-title text-2xl font-bold text-center mb-6">
                 Create New Problem
               </h2>
+
+              {/* AI Problem Generator */}
+              <div className="card bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-primary/20 shadow-md mb-6">
+                <div className="card-body">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="text-white"
+                        >
+                          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                          <path d="M2 17l10 5 10-5" />
+                          <path d="M2 12l10 5 10-5" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-primary">
+                          AI Problem Generator
+                        </h3>
+                        <p className="text-sm text-base-content/70">
+                          Generate a complete problem from your description
+                          using AI
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      className="btn btn-outline btn-primary btn-sm"
+                      onClick={() => setShowAIGenerator(!showAIGenerator)}
+                    >
+                      {showAIGenerator ? "Hide Generator" : "Use AI Generator"}
+                    </button>
+                  </div>
+
+                  {showAIGenerator && (
+                    <div className="space-y-4 pt-4 border-t border-primary/20">
+                      <div className="form-control w-full">
+                        <label className="label">
+                          <span className="label-text font-medium">
+                            Describe the problem you want to create
+                          </span>
+                        </label>
+                        <textarea
+                          className="textarea textarea-bordered h-32 w-full resize-y focus:textarea-primary"
+                          placeholder="Example: Create a problem about finding the maximum sum of a subarray in an array of integers. The problem should be of medium difficulty and involve dynamic programming concepts."
+                          value={problemDescription}
+                          onChange={(e) =>
+                            setProblemDescription(e.target.value)
+                          }
+                        />
+                        <label className="label">
+                          <span className="label-text-alt text-base-content/60">
+                            Be specific about difficulty, concepts, and
+                            constraints you want
+                          </span>
+                        </label>
+                      </div>
+
+                      <div className="flex gap-3">
+                        <button
+                          type="button"
+                          className="btn btn-primary gap-2 flex-1"
+                          onClick={generateProblemWithAI}
+                          disabled={isGenerating || !problemDescription.trim()}
+                        >
+                          {isGenerating ? (
+                            <>
+                              <span className="loading loading-spinner loading-sm"></span>
+                              Generating Problem...
+                            </>
+                          ) : (
+                            <>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5" />
+                                <path d="M2 12l10 5 10-5" />
+                              </svg>
+                              Generate Problem
+                            </>
+                          )}
+                        </button>
+
+                        <button
+                          type="button"
+                          className="btn btn-ghost gap-2"
+                          onClick={() => {
+                            setProblemDescription("");
+                            setShowAIGenerator(false);
+                          }}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+
+                      <div className="alert alert-info">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          className="stroke-current shrink-0 w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        <span className="text-sm">
+                          AI will generate a complete problem with test cases,
+                          starter code, and solutions. You can review and edit
+                          everything before submitting.
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
 
               <form
                 onSubmit={handleSubmit(onSubmit as any)}
@@ -713,9 +910,7 @@ export const Admin = () => {
                   <div className="card-body">
                     <div className="flex justify-between items-center mb-4 border-b border-base-300 pb-3">
                       <h3 className="text-xl font-bold flex items-center gap-2">
-                        <span className="badge badge-secondary badge-lg">
-                          
-                        </span>
+                        <span className="badge badge-secondary badge-lg"></span>
                         Hidden Test Cases
                       </h3>
                       <button
@@ -1336,9 +1531,7 @@ export const Admin = () => {
                       <div className="card-body">
                         <div className="flex justify-between items-center mb-4 border-b border-base-300 pb-3">
                           <h3 className="text-xl font-bold flex items-center gap-2">
-                            <span className="badge badge-primary badge-lg">
-                              
-                            </span>
+                            <span className="badge badge-primary badge-lg"></span>
                             Visible Test Cases
                           </h3>
                         </div>
@@ -1462,9 +1655,7 @@ export const Admin = () => {
                       <div className="card-body">
                         <div className="flex justify-between items-center mb-4 border-b border-base-300 pb-3">
                           <h3 className="text-xl font-bold flex items-center gap-2">
-                            <span className="badge badge-secondary badge-lg">
-                              
-                            </span>
+                            <span className="badge badge-secondary badge-lg"></span>
                             Hidden Test Cases
                           </h3>
                         </div>
