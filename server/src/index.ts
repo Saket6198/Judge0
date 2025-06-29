@@ -8,6 +8,7 @@ import { authRouter } from "./routes/user_authentication";
 import { connectRedis } from "./config/redis";
 import { chatRouter } from "./routes/chat";
 import cors from "cors";
+import { videoRouter } from "./routes/videoCreator";
 dotenv.config();
 
 const app = express();
@@ -25,7 +26,7 @@ app.use("/user", authRouter);
 app.use("/problem", problemRouter);
 app.use("/submission", submitRouter);
 app.use("/chat", chatRouter);
-
+app.use("/video", videoRouter);
 main()
   .then(async () => {
     await connectRedis();

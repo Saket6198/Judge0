@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
+import mongoose from "mongoose";
 import {
   getLanguageById,
   submitBatch,
   submitToken,
 } from "../utils/problemUtility";
 import problemModel from "../models/problems_model";
+import { SolutionVideo } from "../models/solutionVideo";
 
 const createProblem = async (req: Request, res: Response) => {
   const {
@@ -167,15 +169,66 @@ const getProblemById = async (req: Request, res: Response) => {
       res.status(400).json({ error: "Problem ID is required" });
       return; // Return void instead of Response object
     }
+
+    console.log("Getting problem by ID:", id);
+
     const problem = await problemModel
       .findById(id)
       .select("-HiddenTestCases -problemCreator -createdAt -updatedAt -__v");
+
     if (!problem) {
       res.status(404).json({ error: "Problem not found" });
       return; // Return void instead of Response object
     }
-    res.status(200).json(problem);
+
+    console.log("Found problem:", problem.title);
+    console.log("Looking for video with problemId:", id);
+    console.log("Converted ObjectId:", new mongoose.Types.ObjectId(id));
+
+    // Try both ways to find the video - with ObjectId and string
+    const videosWithObjectId = await SolutionVideo.findOne({
+      problemId: new mongoose.Types.ObjectId(id),
+    });
+    const videosWithString = await SolutionVideo.findOne({ problemId: id });
+
+    console.log(
+      "Video found with ObjectId:",
+      videosWithObjectId ? "Yes" : "No"
+    );
+    console.log("Video found with string:", videosWithString ? "Yes" : "No");
+
+    const videos = videosWithObjectId || videosWithString;
+
+    if (videos) {
+      console.log("Video details found:", {
+        _id: videos._id,
+        problemId: videos.problemId,
+        secureUrl: videos.secureUrl,
+        duration: videos.duration,
+        thumbnailUrl: videos.thumbnailUrl,
+      });
+
+      const responseData = {
+        ...problem.toObject(),
+        secureUrl: videos.secureUrl,
+        duration: videos.duration,
+        thumbnailUrl: videos.thumbnailUrl,
+        cloudinaryPublicId: videos.cloudinaryPublicId,
+      };
+
+      console.log("Sending response with video data:", {
+        title: responseData.title,
+        secureUrl: responseData.secureUrl,
+        duration: responseData.duration,
+      });
+
+      res.status(200).json(responseData);
+    } else {
+      console.log("No video found for this problem");
+      res.status(200).json(problem.toObject());
+    }
   } catch (err: any) {
+    console.error("Error in getProblemById:", err);
     res
       .status(500)
       .json({ error: "Error in fetching problem: " + err.message });
