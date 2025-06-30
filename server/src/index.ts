@@ -22,6 +22,17 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+// Health check endpoint for Render
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    message: "Service is healthy",
+  });
+});
+
 app.use("/user", authRouter);
 app.use("/problem", problemRouter);
 app.use("/submission", submitRouter);
@@ -31,8 +42,9 @@ main()
   .then(async () => {
     await connectRedis();
     console.log("Connected to MongoDB");
-    app.listen(process.env.PORT_NUMBER, () => {
-      console.log(`Server is running on port ${process.env.PORT_NUMBER}`);
+    const port = process.env.PORT || process.env.PORT_NUMBER || 3000;
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
     });
   })
   .catch((err) => {
