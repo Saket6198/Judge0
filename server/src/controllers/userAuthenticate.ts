@@ -37,11 +37,12 @@ const register = async (req: Request, res: Response) => {
     res.cookie("token", token, {
       maxAge: 60 * 60 * 1000, // 1 hour
       httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      secure: true,
     });
     res.status(201).json({
       user: reply,
+      token: token,
       message: "User registered successfully",
     });
   } catch (err: any) {
@@ -135,11 +136,12 @@ const login = async (req: Request, res: Response) => {
     res.cookie("token", token, {
       maxAge: 60 * 60 * 1000, // 1 hour
       httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      secure: true,
     });
     res.status(201).json({
       user: reply,
+      token: token,
       message: "Login successful",
     });
   } catch (err: any) {
@@ -266,8 +268,8 @@ const googleLogin = async (req: Request, res: Response) => {
     res.cookie("token", token, {
       maxAge: 60 * 60 * 1000, // 1 hour
       httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      secure: true,
     });
 
     // Return user data (same format as regular login)
