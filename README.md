@@ -35,9 +35,11 @@
 - **Google OAuth Integration** - One-click sign-in with Google accounts
 - **User Profile Management** - Track solved problems and view personal statistics
 
-### � **AI-Powered Problem Generation & Assistance**
+### 🤖 **AI-Powered Problem Generation & Assistance**
 
 - **AI Problem Generator** - Create unlimited custom practice problems using AI
+- ![ai proble generator](https://github.com/user-attachments/assets/ef9efe6c-9f79-4ac1-9abd-8b4acfa1f459)
+
 - **Contextual Chat Assistant** - Get hints and explanations while solving problems
 - **Smart Problem Recommendations** - AI suggests problems based on your skill level
 
