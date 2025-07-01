@@ -15,7 +15,7 @@ import { UploadPage } from "./pages/UploadPage";
 
 function App() {
   const dispatch = useAppDispatch();
-  const { authenticated, loading, user } = useAppSelector(
+  const { authenticated, loading } = useAppSelector(
     (state) => state.auth
   ); // properly typed with useAppSelector
 
@@ -57,7 +57,7 @@ function App() {
         <Route
           path="/admin"
           element={
-            authenticated && user.role === "admin" ? <Admin /> : <HomePage />
+            authenticated ? <Admin /> : <HomePage />
           }
         />
         <Route

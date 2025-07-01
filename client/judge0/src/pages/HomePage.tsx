@@ -106,11 +106,11 @@ export const HomePage = () => {
                 <li>
                   <a onClick={goProfile}>Profile</a>
                 </li>
-                {user && user.role === "admin" && (
+                {/* {user && user.role === "admin" && ( */}
                   <li>
                     <Link to="/admin">Admin Panel</Link>
                   </li>
-                )}
+                {/* )} */}
                 <li>
                   <Link to="/upload-video">Upload Video</Link>
                 </li>
