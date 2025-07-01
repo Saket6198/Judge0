@@ -4,7 +4,6 @@
 
 ![Judge0](https://img.shields.io/badge/Judge0-Powered-orange?style=for-the-badge)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/495b69e6-4ed7-4eb6-9b4f-45279d5bb4c2/deploy-status)](https://app.netlify.com/projects/judge0/deploys)
-[![Service Status](https://img.shields.io/badge/Service%20Status-Monitor-brightgreen?style=for-the-badge)](https://upstill.dev/monitors/public/w9jZxcNJMbmENbT0ZGItDA)
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -15,6 +14,8 @@
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
 
 **A modern competitive programming platform with AI-powered assistance**
+
+[![Service Status](https://img.shields.io/badge/Service%20Status-Monitor-brightgreen?style=for-the-badge)](https://upstill.dev/monitors/public/w9jZxcNJMbmENbT0ZGItDA)
 
 </div>
 
