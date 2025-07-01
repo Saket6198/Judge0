@@ -15,7 +15,7 @@
 
 **A modern competitive programming platform with AI-powered assistance**
 
-[![Service Status](https://img.shields.io/badge/Service%20Status-Monitor-brightgreen?style=for-the-badge)](https://upstill.dev/monitors/status/saket6198)
+[![Service Status](https://img.shields.io/badge/Service%20Status-Monitor-brightgreen?style=for-the-badge)](https://upstill.dev/monitors/public/w9jZxcNJMbmENbT0ZGItDA)
 
 </div>
 
