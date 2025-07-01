@@ -16,14 +16,17 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: [
-      process.env.FRONTEND_URL || "https://judge0.netlify.app",
-      "https://judge0.netlify.app",
-      "http://localhost:5173",
-    ].filter(Boolean),
+    origin: ["https://judge0.netlify.app", "http://localhost:5173"],
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Access-Control-Allow-Credentials",
+      "Access-Control-Allow-Origin",
+      "Access-Control-Allow-Headers",
+    ],
+    exposedHeaders: ["Set-Cookie"],
   })
 );
 
