@@ -3,6 +3,9 @@
 <div align="center">
 
 ![Judge0](https://img.shields.io/badge/Judge0-Powered-orange?style=for-the-badge)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/495b69e6-4ed7-4eb6-9b4f-45279d5bb4c2/deploy-status)](https://app.netlify.com/projects/judge0/deploys)
+[![Service Status](https://img.shields.io/badge/Service%20Status-Monitor-brightgreen?style=for-the-badge)](https://upstill.dev/monitors/public/w9jZxcNJMbmENbT0ZGItDA)
+
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
@@ -26,22 +29,26 @@
 ## ⚡ Key Features
 
 ### 🔐 **Authentication System**
+
 - **JWT Token Authentication** - Secure session management with HTTP-only cookies
 - **Google OAuth Integration** - One-click sign-in with Google accounts
 - **User Profile Management** - Track solved problems and view personal statistics
 
 ### � **AI-Powered Problem Generation & Assistance**
+
 - **AI Problem Generator** - Create unlimited custom practice problems using AI
 - **Contextual Chat Assistant** - Get hints and explanations while solving problems
 - **Smart Problem Recommendations** - AI suggests problems based on your skill level
 
 ### 📝 **Problem Management**
+
 - **Custom Problem Creation** - Build your own coding challenges with test cases
 - **CRUD Operations** - Full admin panel for problem management
 - **Multi-language Support** - Solutions in C++, Java, Python, JavaScript, and C
 - **Advanced Test Case System** - Visible and hidden test cases with detailed feedback
 
 ### 🎥 **Video Solution System**
+
 - **Upload Video Solutions** - Share your problem-solving approach and explanations via video
 - **Cloudinary CDN Integration** - Fast, reliable video streaming and storage with automatic optimization
 - **Video Management** - Upload, view, and delete video solutions for any problem with admin controls
@@ -49,18 +56,21 @@
 - **Video Player Integration** - Seamless video playback directly in the problem interface
 
 ### � **User Dashboard & Analytics**
+
 - **Personal Statistics** - View total problems solved, difficulty breakdown
 - **Progress Tracking** - Monitor your coding journey and improvement
 - **Problem History** - Access all previously solved problems
 - **Performance Metrics** - Detailed submission history and results
 
 ### 💻 **Advanced Code Editor**
+
 - **Monaco Editor Integration** - Professional-grade code editing experience
 - **Syntax Highlighting** - Support for multiple programming languages
 - **Real-time Code Execution** - Instant feedback with detailed test results
 - **Code Submission History** - Track all your submission attempts
 
 ### 🛠 **Admin Panel**
+
 - **Problem Management** - Create, update, and delete problems
 - **User Management** - Monitor user activities and statistics
 - **Video Administration** - Manage video content across the platform
@@ -117,6 +127,7 @@ npm run dev
 ```
 
 **Access Points:**
+
 - Frontend: http://localhost:5173
 - Backend API: http://localhost:8000
 
@@ -125,6 +136,7 @@ npm run dev
 ## 📚 API Endpoints
 
 ### Authentication
+
 ```
 POST /user/register     # User registration
 POST /user/login        # User login
@@ -134,6 +146,7 @@ GET  /user/profile      # Get user profile
 ```
 
 ### Problems
+
 ```
 GET    /problem/getAllProblem    # Get all problems
 GET    /problem/problemById/:id  # Get specific problem
@@ -144,6 +157,7 @@ GET    /problem/user             # Get user's solved problems
 ```
 
 ### Code Submission
+
 ```
 POST /submission/submit/:id      # Submit code solution
 GET  /submission/submittedProblem/:id  # Get submission history
@@ -151,6 +165,7 @@ POST /submission/run/:id         # Run code against test cases
 ```
 
 ### Video Management
+
 ```
 GET    /video/create             # Get upload signature
 POST   /video/save               # Save video metadata
@@ -158,11 +173,13 @@ DELETE /video/delete/:problemId  # Delete video
 ```
 
 ### AI Chat
+
 ```
 POST /chat/problemSolver         # Get AI assistance for problems
 ```
 
 ### Problem Generation
+
 ```
 POST /problemGenerator/createProblem  # Generate problems with AI
 ```
@@ -172,6 +189,7 @@ POST /problemGenerator/createProblem  # Generate problems with AI
 ## 🛠️ Technology Stack
 
 ### Frontend
+
 - **React 19** - Modern UI framework
 - **TypeScript** - Type-safe development
 - **Vite** - Fast build tool
@@ -182,6 +200,7 @@ POST /problemGenerator/createProblem  # Generate problems with AI
 - **Axios** - HTTP client
 
 ### Backend
+
 - **Node.js + Express** - Server framework
 - **TypeScript** - Type safety
 - **MongoDB + Mongoose** - Database
@@ -215,6 +234,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ by Saket Singh**
 
-*Empowering competitive programmers with AI-assisted learning and video solutions*
+_Empowering competitive programmers with AI-assisted learning and video solutions_
 
 </div>
